@@ -91,7 +91,7 @@ class ApiController extends ControllerBase {
   /**
    * Get access token.
    */
-  public function getAccessToken() : string {
+  public function getAccessToken(): string {
     $config = self::config('instagram_catalogue.settings');
     return $config->get('access_token') ?? '';
   }
@@ -119,7 +119,7 @@ class ApiController extends ControllerBase {
   /**
    * Queries Instagram API.
    */
-  private function queryApi(string $access_token) : array {
+  private function queryApi(string $access_token): array {
     $client = new Client();
     $api_url = Url::fromUri('https://api.instagram.com/v1/users/self/media/recent/', [
       'query' => ['access_token' => $access_token],
@@ -184,7 +184,7 @@ class ApiController extends ControllerBase {
   /**
    * Convert Unix timestamp to time in hopefully the right timezone.
    */
-  public function convertTimestampToDate(int $timestamp) : DrupalDateTime {
+  public function convertTimestampToDate(int $timestamp): DrupalDateTime {
     $date_posted = date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, $timestamp);
     $date_posted = new DrupalDateTime($date_posted);
     $date_posted->setTimezone(new DateTimeZone('PST'));

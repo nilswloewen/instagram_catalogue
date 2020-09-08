@@ -98,7 +98,7 @@ class SettingsForm extends ConfigFormBase {
   /**
    * Build elements for access token and upload personal data file.
    */
-  public function buildForm(array $form, FormStateInterface $form_state) : array {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $form = parent::buildForm($form, $form_state);
 
     $access_token = self::config($this->getEditableConfigNames()[0])->get('access_token') ?? '';

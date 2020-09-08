@@ -88,14 +88,14 @@ class PostController extends ControllerBase {
   /**
    * Get number of existing posts.
    */
-  public function getNumOfPosts() : int {
+  public function getNumOfPosts(): int {
     return count($this->getAllPosts());
   }
 
   /**
    * Get all posts.
    */
-  public function getAllPosts() : array {
+  public function getAllPosts(): array {
     return $this->entityManager->getStorage('node')
       ->loadByProperties(['type' => 'instagram_catalogue_post']);
   }

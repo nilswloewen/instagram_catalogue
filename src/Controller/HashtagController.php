@@ -41,7 +41,7 @@ class HashtagController extends ControllerBase {
   /**
    * Parse out hashtags from caption.
    */
-  public static function parseOutHashtagsFromCaption(string $caption) : array {
+  public static function parseOutHashtagsFromCaption(string $caption): array {
     $hashtags = [];
 
     // Split by whitespace.
@@ -67,7 +67,7 @@ class HashtagController extends ControllerBase {
   /**
    * Create taxonomy terms.
    */
-  public function createHashtagTerms(array $new_hashtags) : array {
+  public function createHashtagTerms(array $new_hashtags): array {
 
     $new_hashtags = $this->removeTattooHashtags($new_hashtags);
 
@@ -95,7 +95,7 @@ class HashtagController extends ControllerBase {
   /**
    * Parse out hashtags that include 'tattoo'.
    */
-  private function removeTattooHashtags(array $hashtags) : array {
+  private function removeTattooHashtags(array $hashtags): array {
     foreach ($hashtags as $hashtag) {
       if (strpos($hashtag, 'tattoo') && !strpos($hashtag, 'tattoos')
         && $hashtag !== '#tattoo') {

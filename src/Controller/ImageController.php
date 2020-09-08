@@ -53,7 +53,7 @@ class ImageController extends ControllerBase {
   /**
    * Save images and return image data.
    */
-  public function saveImages(array $new_data, string $img_title) : array {
+  public function saveImages(array $new_data, string $img_title): array {
     if ($new_data['type'] === 'image') {
       $images_data = $this->saveImageAndGetData($new_data['images']['standard_resolution'], $img_title);
     }
@@ -72,7 +72,7 @@ class ImageController extends ControllerBase {
   /**
    * Save image locally for efficient caching.
    */
-  protected function saveImageAndGetData(array $image_data, string $short_caption) : array {
+  protected function saveImageAndGetData(array $image_data, string $short_caption): array {
     $image_file = system_retrieve_file($image_data['url'], PostController::DESTINATION_DIR, TRUE, FileSystemInterface::EXISTS_REPLACE);
 
     return [
@@ -87,7 +87,7 @@ class ImageController extends ControllerBase {
   /**
    * Get all image files.
    */
-  protected function getAllImageFiles() : array {
+  protected function getAllImageFiles(): array {
     $file_ids = $this->fileStorage->getQuery()->condition('uri', 'instagram_catalogue', 'CONTAINS')->execute();
     return $this->fileStorage->loadMultiple($file_ids);
   }
