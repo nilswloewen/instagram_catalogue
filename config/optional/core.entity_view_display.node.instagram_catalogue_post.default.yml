@@ -1,0 +1,90 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.instagram_catalogue_post.field_caption
+    - field.field.node.instagram_catalogue_post.field_comment_count
+    - field.field.node.instagram_catalogue_post.field_date_posted
+    - field.field.node.instagram_catalogue_post.field_hashtags
+    - field.field.node.instagram_catalogue_post.field_images
+    - field.field.node.instagram_catalogue_post.field_like_count
+    - field.field.node.instagram_catalogue_post.field_link_to_original_post
+    - node.type.instagram_catalogue_post
+  module:
+    - datetime
+    - link
+    - magnific_popup
+    - user
+_core:
+  default_config_hash: 9O-2YWdRW9OujcCctq47i1vckIley3Y--BPi6mzYmtM
+id: node.instagram_catalogue_post.default
+targetEntityType: node
+bundle: instagram_catalogue_post
+mode: default
+content:
+  field_caption:
+    type: basic_string
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_comment_count:
+    weight: 4
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_date_posted:
+    type: datetime_default
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_hashtags:
+    weight: 2
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_images:
+    type: magnific_popup
+    weight: 0
+    region: content
+    label: above
+    settings:
+      thumbnail_image_style: medium
+      popup_image_style: ''
+      gallery_type: all_items
+    third_party_settings: {  }
+  field_like_count:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_link_to_original_post:
+    weight: 6
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  links: true

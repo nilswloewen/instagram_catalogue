@@ -1,0 +1,6 @@
+administer instagram_catalogue:
+  title: 'Administer Instagram Catalogue Settings'
+  description: 'Connect to Instagram API and upload personal content'
+view instagram_catalogue:
+  title: 'View Instagram Catalogue Posts'
+  description: 'Authorize site visitors to see Instagram Catalogue Posts.'

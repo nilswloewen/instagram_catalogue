@@ -1,0 +1,92 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.instagram_catalogue_post.field_caption
+    - field.field.node.instagram_catalogue_post.field_comment_count
+    - field.field.node.instagram_catalogue_post.field_date_posted
+    - field.field.node.instagram_catalogue_post.field_hashtags
+    - field.field.node.instagram_catalogue_post.field_images
+    - field.field.node.instagram_catalogue_post.field_like_count
+    - field.field.node.instagram_catalogue_post.field_link_to_original_post
+    - image.style.thumbnail
+    - node.type.instagram_catalogue_post
+  module:
+    - datetime
+    - image
+    - link
+_core:
+  default_config_hash: ohhHYgPpzln2lx3814hUNXikCA8AVJpkJ6JnDj55Ypo
+id: node.instagram_catalogue_post.default
+targetEntityType: node
+bundle: instagram_catalogue_post
+mode: default
+content:
+  field_caption:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_comment_count:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_date_posted:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_hashtags:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_images:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_like_count:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_link_to_original_post:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

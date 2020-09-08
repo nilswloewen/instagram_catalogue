@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caption
+    - field.storage.node.field_comment_count
+    - field.storage.node.field_date_posted
+    - field.storage.node.field_hashtags
+    - field.storage.node.field_like_count
+    - search_api.server.instagram_catalogue
+  module:
+    - search_api
+    - node
+id: instagram_catalogue
+name: 'Instagram Catalogue'
+description: ''
+read_only: false
+field_settings:
+  field_caption:
+    label: Caption
+    datasource_id: 'entity:node'
+    property_path: field_caption
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_caption
+  field_comment_count:
+    label: 'Comment Count'
+    datasource_id: 'entity:node'
+    property_path: field_comment_count
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_comment_count
+  field_date_posted:
+    label: 'Date Posted'
+    datasource_id: 'entity:node'
+    property_path: field_date_posted
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date_posted
+  field_hashtags:
+    label: Hashtags
+    datasource_id: 'entity:node'
+    property_path: field_hashtags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_hashtags
+  field_like_count:
+    label: 'Like Count'
+    datasource_id: 'entity:node'
+    property_path: field_like_count
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_like_count
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - instagram_catalogue_post
+    languages:
+      default: false
+      selected:
+        - en
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: instagram_catalogue

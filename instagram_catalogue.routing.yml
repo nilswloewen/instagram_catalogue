@@ -1,0 +1,9 @@
+instagram_catalogue.settings:
+  path: '/admin/config/media/instagram_catalogue'
+  defaults:
+    _form: '\Drupal\instagram_catalogue\Form\SettingsForm'
+    _title: 'Instagram Catalogue Settings'
+  requirements:
+    _permission: 'administer instagram_catalogue'
+  options:
+    _admin_route: TRUE

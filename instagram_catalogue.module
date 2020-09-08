@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * The module file for instagram_catalogue module.
+ */
+
+use Drupal\instagram_catalogue\Controller\ApiController;
+
+/**
+ * Implements hook_cron().
+ */
+function instagram_catalogue_cron() {
+  $access_token = Drupal::configFactory()->getEditable('instagram_catalogue.settings')->get('access_token');
+  if ($access_token) {
+    $apiController = new ApiController(
+      Drupal::service('entity.manager'),
+      Drupal::service('file_system'),
+      Drupal::service('logger.factory')->get('action')
+    );
+    $apiController->queryForNewPosts();
+  }
+}
+
+/**
+ * Point hashtags to vocabulary.
+ *
+ * Implements hook_preprocess_views_view_field().
+ */
+function instagram_catalogue_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  $field = $variables['field'];
+
+  // Only affect this view.
+  if (($view->current_display === 'page' || $view->current_display === 'teaser')
+    && $field->field === 'field_hashtags'
+    && $view->storage->id() === 'instagram_catalogue') {
+
+    // Get each tag.
+    $tags = explode(' ', $variables['output']);
+
+    foreach ($tags as $key => $tag) {
+      $term = Drupal::service('entity_type.manager')->getStorage('taxonomy_term')
+        ->loadByProperties(['name' => $tag]);
+      if ($term) {
+        $vid = current($term)->getVocabularyId();
+        $variables['url'] = '/gallery/tags/' . $vid;
+        $variables[$key]['term'] = $tag;
+        $output[$tag] = '<a href="/gallery?f[0]=tags%3A' . $vid . '">' . $tag . '</a>';
+      }
+    }
+    if (!empty($output)) {
+      // Sort by length for prettier layout.
+      uksort($output, function ($a, $b) {
+        return strlen($a) > strlen($b);
+      });
+
+      $caption = $variables['row']->_object->getEntity()
+        ->get('field_caption')
+        ->getValue();
+      $caption = current($caption)['value'];
+      $variables['output'] = $caption . ' ' . implode('', $output);
+    }
+  }
+}

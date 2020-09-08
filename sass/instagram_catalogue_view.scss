@@ -1,0 +1,73 @@
+
+.view-instagram-catalogue {
+  .col {
+    padding-bottom: 30px;
+    max-width: 280px;
+    margin: 6px;
+  }
+
+  .form--inline {
+    .form-actions {
+      clear: none;
+    }
+  }
+
+  #edit-submit-instagram-catalogue {
+    height: 49px;
+  }
+
+  .form-optional {
+    display: none;
+  }
+
+  .views-field-field-images {
+    margin-top: 30px;
+    margin-bottom: 4px;
+    min-height: 220px;
+
+    span {
+      a {
+        img {
+          border-radius: 4px;
+          border: 1px solid lightgrey;
+          object-fit: cover;
+          min-height: 220px;
+          min-width: 220px;
+          max-height: 220px;
+          max-width: 220px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .views-field-field-like-count::before {
+    //@include fa-icon();
+    //content: $fa-var-heart;
+    color: #ff565b;
+  }
+
+  .views-field-field-comment-count::before {
+    //@include fa-icon();
+    //content: $fa-var-comment-o;
+    color: #ff565b;
+    font-size: 17px;
+    margin-left: 9px;
+  }
+
+  .views-field-field-link-to-original-post {
+    a::before {
+      //@include fa-icon();
+      //content: $fa-var-instagram;
+      margin-left: 9px;
+      position: relative;
+      color: #ff565b;
+    }
+  }
+
+  .views-field-field-caption {
+    max-width: 270px;
+    overflow: hidden;
+  }
+
+}

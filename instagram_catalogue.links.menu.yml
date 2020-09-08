@@ -1,0 +1,5 @@
+instagram_catalogue.admin.structure:
+  title: 'Instagram Catalogue Settings'
+  description: 'Configure Instgram API connection and upload personal data.'
+  route_name:  instagram_catalogue.settings
+  parent: system.admin_config_media

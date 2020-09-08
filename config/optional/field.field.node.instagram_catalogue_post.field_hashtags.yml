@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hashtags
+    - node.type.instagram_catalogue_post
+    - taxonomy.vocabulary.misc
+id: node.instagram_catalogue_post.field_hashtags
+field_name: field_hashtags
+entity_type: node
+bundle: instagram_catalogue_post
+label: Hashtags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      misc: misc
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

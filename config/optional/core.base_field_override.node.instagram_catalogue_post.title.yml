@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.instagram_catalogue_post
+_core:
+  default_config_hash: btg6Z0icFSIHgAWWqbpEc7KR21VmypDruF7pavQqNS8
+id: node.instagram_catalogue_post.title
+field_name: title
+entity_type: node
+bundle: instagram_catalogue_post
+label: 'Caption Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

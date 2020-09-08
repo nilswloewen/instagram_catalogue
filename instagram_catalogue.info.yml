@@ -1,0 +1,12 @@
+name: 'Instagram Catalogue'
+description: 'A searchable catalogue of Instagram posts.'
+core: 8.x
+type: module
+package: Media
+configure: instagram_catalogue.settings.yml
+dependencies:
+  - search_api:search_api
+  - search_api_db:search_api_db
+  - magnific_popup:magnific_popup
+  - views_bootstrap:views_bootstrap
+  - facets:facets
